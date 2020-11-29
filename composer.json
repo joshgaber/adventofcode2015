@@ -1,0 +1,19 @@
+{
+    "name": "joshgaber/advent2015",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Josh Gaber",
+            "email": "j.gaber@vehikl.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AdventOfCode\\": "php/"
+        }
+    },
+    "scripts": {
+        "go": "php index.php"
+    }
+}
