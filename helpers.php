@@ -3,6 +3,6 @@
 if (!function_exists('load')) {
     function load($filename)
     {
-        return file_get_contents(__DIR__ . '/data/' . $filename);
+        return trim(file_get_contents(__DIR__ . '/data/' . $filename));
     }
 }
