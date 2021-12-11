@@ -4,11 +4,11 @@ namespace AdventOfCode;
 
 class Day3
 {
-    private $moves;
+    private readonly array $moves;
 
-    public function __construct()
+    public function __construct(string $input)
     {
-        $this->moves = str_split(trim(load('day3.txt')));
+        $this->moves = str_split($input);
     }
 
     public function part1()

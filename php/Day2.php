@@ -4,13 +4,13 @@ namespace AdventOfCode;
 
 class Day2
 {
-    private $dimensions;
+    private readonly array $dimensions;
 
-    public function __construct()
+    public function __construct(string $input)
     {
         $this->dimensions = array_map(
             fn ($d) => array_map(fn ($e) => intval($e), explode('x', $d)),
-            explode("\n", trim(load('day2.txt')))
+            explode("\n", $input)
         );
     }
 

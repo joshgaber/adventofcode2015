@@ -4,11 +4,11 @@ namespace AdventOfCode;
 
 class Day1
 {
-    private $steps;
+    private readonly array $steps;
 
-    public function __construct()
+    public function __construct(string $input)
     {
-        $this->steps = str_split(load('day1.txt'));
+        $this->steps = str_split($input);
     }
 
     public function part1()

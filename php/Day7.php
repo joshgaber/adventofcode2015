@@ -4,7 +4,9 @@ namespace AdventOfCode;
 
 class Day7
 {
-    public function __construct()
+    private readonly array $commands;
+
+    public function __construct(string $input)
     {
         $this->commands = array_column(
                 array_map(
@@ -12,7 +14,7 @@ class Day7
                 explode("\n", str_replace(
                     ['AND', 'OR', 'NOT', 'LSHIFT', 'RSHIFT'],
                     ['&', '|', '~', '<<', '>>'],
-                    load('day7.txt')
+                    $input
                 ))
             ),
         0, 1);

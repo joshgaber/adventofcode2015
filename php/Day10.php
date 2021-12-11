@@ -4,11 +4,7 @@ namespace AdventOfCode;
 
 class Day10
 {
-    private string $sequence;
-
-    public function __construct() {
-        $this->sequence = trim(load('day10.txt'));
-    }
+    public function __construct(private readonly string $sequence) {}
 
     public function part1 ()
     {

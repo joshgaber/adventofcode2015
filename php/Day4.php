@@ -4,14 +4,14 @@ namespace AdventOfCode;
 
 class Day4
 {
-    private const HASH = 'iwrupvqb';
+    public function __construct(private readonly string $hash) {}
 
     public function part1 ()
     {
         $i = 0;
         do {
-            $hash = md5(self::HASH . ++$i);
-        } while (substr($hash, 0, 5) !== '00000');
+            $hash = md5($this->hash . ++$i);
+        } while (!str_starts_with($hash, '00000'));
 
         printf("Lowest integer: %d\n", $i);
     }
@@ -20,8 +20,8 @@ class Day4
     {
         $i = 0;
         do {
-            $hash = md5(self::HASH . ++$i);
-        } while (substr($hash, 0, 6) !== '000000');
+            $hash = md5($this->hash . ++$i);
+        } while (!str_starts_with($hash, '000000'));
 
         printf("Lowest integer: %d\n", $i);
     }

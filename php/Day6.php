@@ -6,14 +6,14 @@ class Day6
 {
     private array $instructions;
 
-    public function __construct()
+    public function __construct(string $input)
     {
         $this->instructions = array_map(
             fn ($i) => [
                 'switch' => trim(preg_split("/\\d/", $i)[0]),
-                'positions' => array_map(fn ($x) => intval($x), preg_grep("/\\d/", preg_split("/ |,/", $i)))
+                'positions' => array_map(fn ($x) => intval($x), preg_grep("/\\d/", preg_split("/[ ,]/", $i)))
             ],
-            explode("\n", trim(load('day6.txt')))
+            explode("\n", $input)
         );
     }
     public function part1 ()

@@ -4,11 +4,11 @@ namespace AdventOfCode;
 
 class Day5
 {
-    private array $strings;
+    private readonly array $strings;
 
-    public function __construct()
+    public function __construct(string $input)
     {
-        $this->strings = explode("\n", trim(load('day5.txt')));
+        $this->strings = explode("\n", $input);
     }
 
     public function part1 ()

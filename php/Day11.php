@@ -4,12 +4,7 @@ namespace AdventOfCode;
 
 class Day11
 {
-    private readonly string $password;
-
-    public function __construct()
-    {
-        $this->password = load('day11.txt');
-    }
+    public function __construct(private readonly string $password) {}
 
     public function part1()
     {

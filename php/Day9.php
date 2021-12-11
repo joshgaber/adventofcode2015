@@ -9,9 +9,9 @@ class Day9
     /** @var City[] $cities */
     private array $cities;
 
-    public function __construct()
+    public function __construct(string $input)
     {
-        $paths = explode("\n", load('day9.txt'));
+        $paths = explode("\n", $input);
         foreach ($paths as $path) {
             $matches = [];
             preg_match('/(\w+) to (\w+) = (\d+)/', $path, $matches);
