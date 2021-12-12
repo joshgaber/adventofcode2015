@@ -17,7 +17,7 @@ if (!function_exists('load')) {
         foreach ($array as $item) {
             $subarrays = array_permutations(array_diff($array, [$item]));
             array_map(function (array $a) use (&$arrays, $item) {
-                $arrays[] = [$item, ...$a];
+                $arrays[] = array_values([$item, ...$a]);
             }, $subarrays);
         }
 
