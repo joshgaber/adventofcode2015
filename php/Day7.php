@@ -20,21 +20,21 @@ class Day7
         0, 1);
     }
 
-    public function part1()
+    public function part1(): int
     {
-        printf("Wire [a] value: %s\n", $this->calculate($this->commands)['a']);
+        return $this->calculate($this->commands)['a'];
     }
 
-    public function part2 ()
+    public function part2(): int
     {
         $a = $this->calculate($this->commands)['a'];
         $commands = $this->commands;
         $commands['b'] = $a;
 
-        printf("Wire [a] value after second pass: %s\n", $this->calculate($commands)['a']);
+        return $this->calculate($commands)['a'];
     }
 
-    private function calculate($commands)
+    private function calculate($commands): array
     {
         $results = [];
 
@@ -57,7 +57,7 @@ class Day7
         return $results;
     }
 
-    private function varReplace($vars)
+    private function varReplace($vars): array
     {
         return array_map(fn ($v) => "/(?<![a-z]){$v}(?![a-z])/", $vars);
     }

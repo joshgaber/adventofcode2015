@@ -14,24 +14,20 @@ class Day2
         );
     }
 
-    public function part1()
+    public function part1(): int
     {
-        $total = array_reduce(
-            $this->dimensions,
-            fn ($init, $d) => $init + $this->paper(...$d),
-            0
-        );
-        printf("Total wrapping paper: %d\n", $total);
+        return array_sum(array_map(
+            fn ($d) => $this->paper(...$d),
+            $this->dimensions
+        ));
     }
 
-    public function part2()
+    public function part2(): int
     {
-        $total = array_reduce(
-            $this->dimensions,
-            fn ($init, $d) => $init + $this->ribbon(...$d),
-            0
-        );
-        printf("Total wrapping paper: %d\n", $total);
+        return array_sum(array_map(
+            fn ($d) => $this->ribbon(...$d),
+            $this->dimensions
+        ));
     }
 
     private function paper(int $length, int $width, int $height): int

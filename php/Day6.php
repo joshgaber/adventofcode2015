@@ -16,28 +16,25 @@ class Day6
             explode("\n", $input)
         );
     }
-    public function part1 ()
+
+    public function part1(): int
     {
         $lights = array_fill(0, 1000, array_fill(0, 1000, false));
         foreach ($this->instructions as $i) {
             $this->adjust($lights, $i['switch'], ...$i['positions']);
         }
 
-        $lit = array_reduce($lights, fn ($acc, $l) => $acc + count(array_filter($l)), 0);
-
-        printf("Lights lit: %d\n", $lit);
+        return array_sum(array_map(fn ($l) => count(array_filter($l)), $lights));
     }
 
-    public function part2 ()
+    public function part2(): int
     {
         $lights = array_fill(0, 1000, array_fill(0, 1000, 0));
         foreach ($this->instructions as $i) {
             $this->brightness($lights, $i['switch'], ...$i['positions']);
         }
 
-        $lit = array_reduce($lights, fn ($acc, $l) => $acc + array_reduce($l, fn($acc2, $l2) => $acc2 + $l2, 0), 0);
-
-        printf("Total Brightness: %d\n", $lit);
+        return array_sum(array_map(fn ($l) => array_sum($l), $lights));
     }
 
     public function adjust(&$lights, $switch, $startX, $startY, $endX, $endY)

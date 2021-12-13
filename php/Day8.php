@@ -11,26 +11,24 @@ class Day8
         $this->strings = explode("\n", $input);
     }
 
-    public function part1()
+    public function part1(): int
     {
-        $diff = array_sum(array_map(fn($item) => $this->unescapeDiff($item), $this->strings));
-        printf("Space saved after unescaping: %d\n", $diff);
+        return array_sum(array_map(fn($item) => $this->unescapeDiff($item), $this->strings));
     }
 
     public function part2()
     {
-        $diff = array_sum(array_map(fn($item) => $this->escapeDiff($item), $this->strings));
-        printf("Space used after escaping: %d\n", $diff);
+        return array_sum(array_map(fn($item) => $this->escapeDiff($item), $this->strings));
 
     }
 
-    private function unescapeDiff($string)
+    private function unescapeDiff($string): int
     {
         $escaped = substr(preg_replace(['/\\\\\\\\/', '/\\\\"/', '/\\\\x\w\w/'], ['.',',','?'], $string), 1, -1);
         return strlen($string) - strlen($escaped);
     }
 
-    private function escapeDiff($string)
+    private function escapeDiff($string): int
     {
         $unescape = '"'.preg_replace(['/\\\\/', '/"/'], ['\\\\\\\\','\\"'], $string).'"';
         return strlen($unescape) - strlen($string);

@@ -24,16 +24,16 @@ class Day9
         }
     }
 
-    public function part1()
+    public function part1(): int
     {
         $paths = array_map(fn(array $a) => $this->path_distance($a), array_permutations($this->cities));
-        echo 'PART 1: ' . min(...$paths) . "\n";
+        return min(...$paths);
     }
 
-    public function part2()
+    public function part2(): int
     {
         $paths = array_map(fn(array $a) => $this->path_distance($a), array_permutations($this->cities));
-        echo 'PART 1: ' . max(...$paths) . "\n";
+        return max(...$paths);
     }
 
     /**

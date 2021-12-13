@@ -11,7 +11,7 @@ class Day5
         $this->strings = explode("\n", $input);
     }
 
-    public function part1 ()
+    public function part1(): int
     {
         $nice = array_filter(
             $this->strings,
@@ -20,10 +20,10 @@ class Day5
                 && !preg_match("/ab|cd|pq|xy/", $s)
         );
 
-        printf("Nice strings: %d\n", count($nice));
+        return count($nice);
     }
 
-    public function part2 ()
+    public function part2(): int
     {
         $nice = array_filter(
             $this->strings,
@@ -31,7 +31,7 @@ class Day5
                 && preg_match("/(.).\\1/", $s)
         );
 
-        printf("Nice strings: %d\n", count($nice));
+        return count($nice);
     }
 }
 

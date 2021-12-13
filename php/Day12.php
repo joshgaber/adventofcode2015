@@ -6,16 +6,15 @@ class Day12
 {
     public function __construct(private readonly string $books) {}
 
-    public function part1()
+    public function part1(): int
     {
         $matches = [];
         preg_match_all('/-?\\d+/', $this->books, $matches);
 
-        $total = array_sum(array_map(fn ($num) => intval($num), $matches[0]));
-        echo "PART 1: {$total}\n";
+        return array_sum(array_map(fn ($num) => intval($num), $matches[0]));
     }
 
-    public function part2()
+    public function part2(): int
     {
         $books = json_decode($this->books, true);
         $books = $this->array_remove_red($books);
@@ -24,8 +23,7 @@ class Day12
         $matches = [];
         preg_match_all('/-?\\d+/', $fixedBooks, $matches);
 
-        $total = array_sum(array_map(fn ($num) => intval($num), $matches[0]));
-        echo "PART 1: {$total}\n";
+        return array_sum(array_map(fn ($num) => intval($num), $matches[0]));
     }
 
     private function array_remove_red(array $array): array

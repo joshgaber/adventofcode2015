@@ -19,14 +19,14 @@ class Day13
             $this->guests[$matches[1]]->addRule($this->guests[$matches[4]], intval($matches[3]) * ($matches[2] == 'lose' ? -1 : 1));
         }
     }
-    public function part1()
+    public function part1(): int
     {
-        echo $this->maximumHappiness($this->guests);
+        return $this->maximumHappiness($this->guests);
     }
 
-    public function part2()
+    public function part2(): int
     {
-        echo $this->maximumHappiness(['Myself' => new Guest('Myself'), ...$this->guests]);
+        return $this->maximumHappiness(['Myself' => new Guest('Myself'), ...$this->guests]);
     }
 
     private function maximumHappiness(array $guests): int

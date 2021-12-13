@@ -6,7 +6,7 @@ class Day10
 {
     public function __construct(private readonly string $sequence) {}
 
-    public function part1 ()
+    public function part1(): int
     {
         $sequence = $this->sequence;
 
@@ -14,7 +14,7 @@ class Day10
             $sequence = $this->resequence($sequence);
         }
 
-        echo "PART 1: " . strlen($sequence) . "\n";
+        return strlen($sequence);
     }
 
     public function part2 ()
@@ -25,7 +25,7 @@ class Day10
             $sequence = $this->resequence($sequence);
         }
 
-        echo "PART 2: " . strlen($sequence) . "\n";
+        return strlen($sequence);
     }
 
     public function resequence(string $sequence): string

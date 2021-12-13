@@ -11,7 +11,7 @@ class Day1
         $this->steps = str_split($input);
     }
 
-    public function part1()
+    public function part1(): int
     {
         $stages = ['(' => 0, ')' => 0];
 
@@ -19,10 +19,10 @@ class Day1
             $stages[$step]++;
         }
 
-        printf("Stopped at floor %d\n", $stages['('] - $stages[')']);
+       return $stages['('] - $stages[')'];
     }
 
-    public function part2()
+    public function part2(): int
     {
         $step = $floor = 0;
 
@@ -30,6 +30,6 @@ class Day1
             $floor += ($this->steps[$step++] === '(' ? 1 : -1);
         } while ($floor >= 0);
 
-        printf("Entered basement as step %d\n", $step);
+       return $step;
     }
 }

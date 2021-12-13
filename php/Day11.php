@@ -6,14 +6,14 @@ class Day11
 {
     public function __construct(private readonly string $password) {}
 
-    public function part1()
+    public function part1(): string
     {
-        echo "PART 1: {$this->nextValidPassword($this->password)}\n";
+        return $this->nextValidPassword($this->password);
     }
 
     public function part2()
     {
-        echo "PART 2: {$this->nextValidPassword($this->nextValidPassword($this->password))}\n";
+        return $this->nextValidPassword($this->nextValidPassword($this->password));
     }
 
     private function nextValidPassword(string $password): string {
@@ -44,9 +44,6 @@ class Day11
     }
 
     private function nextPassword(string $password): string {
-        if (strlen($password) !== 8) {
-            throw new \Exception();
-        }
         $newChars = substr($password, -1);
 
         while (str_starts_with($newChars, 'z')) {

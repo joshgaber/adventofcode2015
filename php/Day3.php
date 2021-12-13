@@ -11,7 +11,7 @@ class Day3
         $this->moves = str_split($input);
     }
 
-    public function part1()
+    public function part1(): int
     {
         $santa = ['x' => 0, 'y' => 0];
         $houses = ['x0y0'];
@@ -20,10 +20,10 @@ class Day3
             $this->move($santa, $houses, $move);
         }
 
-        printf("Total houses visited: %d\n", count(array_unique($houses)));
+        return count(array_unique($houses));
     }
 
-    public function part2()
+    public function part2(): int
     {
         $santa = ['x' => 0, 'y' => 0];
         $robot = ['x' => 0, 'y' => 0];
@@ -35,7 +35,7 @@ class Day3
             : $this->move($robot, $houses, $move);
         }
 
-        printf("Total houses visited: %d\n", count(array_unique($houses)));
+        return count(array_unique($houses));
     }
 
     private function move(array &$santa, array &$houses, string $move)
